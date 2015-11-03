@@ -3,6 +3,9 @@ module.exports = function(grunt){
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    copy: {
+      'build/github-markdown.css': 'node_modules/github-markdown-css/github-markdown.css'
+    },
     markdown: {
       all: {
         files: [{
@@ -13,9 +16,7 @@ module.exports = function(grunt){
         }]
       },
       options: {
-        postCompile: function(src, context) {
-          return src + "<script src='http://localhost:35729/livereload.js'></script>\n";
-        },
+        template: 'template.jst'
       }
     },
     watch: {
@@ -41,6 +42,6 @@ module.exports = function(grunt){
     clean: ['build/']
   });
 
-  grunt.registerTask('default', ['clean','watch']);
+  grunt.registerTask('default', ['clean','copy','watch']);
 };
 
