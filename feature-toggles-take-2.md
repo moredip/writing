@@ -108,7 +108,7 @@ Usage of feature toggles can vary across two major dimensions: how long the feat
 
 With those two dimensions in mind, let's consider various categories of toggle and see where they fit.
 
-### DIAGRAM HERE
+<img src="images/feature-toggles/white-board-categories.jpeg"></img>
 
 ## Release Toggles
 
