@@ -386,7 +386,7 @@ Let's revisit our previous example of an ecommerce site which has a Recommmended
 ### Feature Toggles introduce validation complexity
 With feature-toggled systems our Continuous Delivery process becomes more complex since we'll often need to test multiple codepaths for the same artifact as it moves through a CD pipeline. To illustrate why, imagine we are shipping a system which can either use a new optimized tax calculation algorithm if a toggle is on, or otherwise continue to use our existing algorithm. At the time that a given deployable artifact is moving through our CD pipeline we can't know whether the toggle will be turned on or off in production - that's the whole point of feature toggles after all. This means we must perform validation on our artifact both with the toggle flipped On and flipped Off. 
 
-{% img /images/post_images/feature-toggles/feature-toggles-testing.png %}
+<img src="https://raw.githubusercontent.com/moredip/writing/master/images/feature-toggles/feature-toggles-testing.png"></img>
 
 If your feature toggle system doesn't support runtime configuration then you may have to restart the process you're testing in order to flip a toggle, or worse re-deploy an artifact into a testing environment. This can have a very detrimental effect on the cycle time of your validation process, which in turn impacts the all important feedback loop that CI provides. To avoid this issue consider exposing an endpoint which allows for dynamic in-memory re-configuration of a feature toggle. These types of override becomes even more necessary when you are using things like Experiment Toggles where it's even more fiddly to exercise both paths of a toggle.
 
