@@ -4,7 +4,8 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     copy: {
-      'build/github-markdown.css': 'node_modules/github-markdown-css/github-markdown.css'
+      'build/github-markdown.css': 'node_modules/github-markdown-css/github-markdown.css',
+      'build/': 'images/**/*'
     },
     markdown: {
       all: {
@@ -29,6 +30,13 @@ module.exports = function(grunt){
         options: {
           atBegin: true,
           livereload: true
+        }
+      },
+      images: {
+        files: ['images/**/*'],
+        tasks: ['copy'],
+        options: {
+          atBegin: true
         }
       },
       html: {
